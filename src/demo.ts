@@ -1,6 +1,10 @@
 import {Zefix} from './index';
 
-const zefix = new Zefix({usr: process.env.USR as string, pwd: process.env.PWD as string});
+const zefix = new Zefix({
+    usr: process.env.USR as string,
+    pwd: process.env.PWD as string,
+    endpoint: process.env.ENDPOINT as string
+});
 
 try {
     zefix

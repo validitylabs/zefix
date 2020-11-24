@@ -42,10 +42,11 @@ export const search = async (
     term: string,
     usr: string,
     pwd: string,
+    endpoint: string,
     activeOnly = false
 ): Promise<ISearchResult[] | null> => {
     const response = await axios.post(
-        'https://www.zefixintg.admin.ch/ZefixPublicREST/api/v1/company/search',
+        `${endpoint}/company/search`,
         {
             activeOnly,
             name: term

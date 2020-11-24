@@ -96,8 +96,13 @@ export interface IDetailsResult {
     status: 'ACTIVE' | 'CANCELLED' | 'BEING_CANCELLED' | null;
 }
 
-export const details = async (uid: string, usr: string, pwd: string): Promise<IDetailsResult | null> => {
-    const response = await axios.get(`https://www.zefixintg.admin.ch/ZefixPublicREST/api/v1/company/uid/${uid}`, {
+export const details = async (
+    uid: string,
+    usr: string,
+    pwd: string,
+    endpoint: string
+): Promise<IDetailsResult | null> => {
+    const response = await axios.get(`${endpoint}/company/uid/${uid}`, {
         headers: {
             'Content-Type': 'application/json; charset=utf-8',
             Authorization: createBasicAuthHeader(usr, pwd)
